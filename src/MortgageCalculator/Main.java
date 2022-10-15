@@ -40,7 +40,7 @@ public class Main {
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
         System.out.println("Amount per payment " + mortgageFormatted);
 
-
+        //test
     }
 
 }
