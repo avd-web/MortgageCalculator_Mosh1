@@ -12,30 +12,29 @@ public class Main {
         final byte PERCENTAGES = 100;
 
         // start program
-        System.out.print("Input Principal amount: ");
+        System.out.print("Input Principal amount ($): ");
         Scanner scanner = new Scanner(System.in);
         int principal = scanner.nextInt();
         // print output 1
         System.out.println("Principal amount: " + principal);
 
 
-        System.out.print("Input interest rate (%): ");
+        System.out.print("Input annual interest rate (%): ");
         float monthlyInterest = scanner.nextFloat() / MONTHS_IN_YEAR / PERCENTAGES;
-        // print output 2
-        System.out.println("Monthly interest rate: " + monthlyInterest + "%");
 
         System.out.print("Input number of years: ");
         byte years = scanner.nextByte();
-        // print output 3
-        System.out.println("Number of payments: " +(years * MONTHS_IN_YEAR));
+        int numberOfPayments = years * MONTHS_IN_YEAR;
+        // print output 2
+        System.out.println("Number of payments: " + numberOfPayments);
 
         // mortgage calculation
         double mortgage =
                         principal
-                        *
-                        ((monthlyInterest * Math.pow(( 1 + monthlyInterest), years))
+                *
+                ((monthlyInterest * Math.pow(( 1 + monthlyInterest), numberOfPayments))
                         /
-                        (Math.pow(( 1 + monthlyInterest), years) - 1 ));
+                        (Math.pow(( 1 + monthlyInterest), numberOfPayments) - 1 ));
 
         // Format amount + print output 3
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
