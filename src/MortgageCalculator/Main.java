@@ -10,7 +10,10 @@ public class Main {
         // declaring months/percentages
         final byte MONTHS_IN_YEAR = 12;
         final byte PERCENTAGES = 100;
+
         int principal = 0;
+        float monthlyInterest = 0;
+        int numberOfPayments = 0;
 
         Scanner scanner = new Scanner(System.in);
 
@@ -26,12 +29,26 @@ public class Main {
         System.out.println("Principal amount: " + principal);
 
 
-        System.out.print("Input annual interest rate (%): ");
-        float monthlyInterest = scanner.nextFloat() / MONTHS_IN_YEAR / PERCENTAGES;
+        while (true) {
+            System.out.print("Input annual interest rate (1%-30%): ");
+            float annualInterest = scanner.nextFloat();
+            if (annualInterest >= 1 && annualInterest <=30) {
+                monthlyInterest = annualInterest / MONTHS_IN_YEAR / PERCENTAGES;
+                break;
+            }
+            System.out.println("Enter a value between 1 and 30");
+        }
 
-        System.out.print("Input number of years: ");
-        byte years = scanner.nextByte();
-        int numberOfPayments = years * MONTHS_IN_YEAR;
+        while (true) {
+            System.out.print("Input number of years (1-100): ");
+            byte years = scanner.nextByte();
+            if (years >= 1 && years <= 100) {
+                numberOfPayments = years * MONTHS_IN_YEAR;
+                break;
+            }
+            System.out.println("Enter a value between 1 and 100");
+        }
+
         // print output 2
         System.out.println("Number of payments: " + numberOfPayments);
 
