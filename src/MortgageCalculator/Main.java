@@ -10,11 +10,18 @@ public class Main {
         // declaring months/percentages
         final byte MONTHS_IN_YEAR = 12;
         final byte PERCENTAGES = 100;
+        int principal = 0;
 
-        // start program
-        System.out.print("Input Principal amount ($): ");
         Scanner scanner = new Scanner(System.in);
-        int principal = scanner.nextInt();
+
+        while (true) {
+            System.out.print("Input Principal amount ($1K - $10M): ");
+            principal = scanner.nextInt();
+            if (principal >= 1_000 && principal <= 10_000_000)
+                break;
+            System.out.println("Enter a value between 1000 and 10000000");
+        }
+
         // print output 1
         System.out.println("Principal amount: " + principal);
 
